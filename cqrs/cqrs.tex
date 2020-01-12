@@ -1,0 +1,72 @@
+  \documentclass{beamer}
+  \usepackage[utf8]{inputenc}
+  \usetheme{Warsaw}
+
+  \title{CQRS}
+  \author{Francis Laforge}
+  \institute{Introduction au pattern CQRS}
+
+  \begin{document}
+
+  \begin{frame}
+  \titlepage
+  \end{frame}
+
+  \frame{\frametitle{Sommaire}\tableofcontents} 
+
+	\section{Définition}
+	\begin{frame}
+		\begin{itemize}
+	    \item \textsc{CQRS} : \textbf{C}ommand \textbf{Q}uery \textbf{R}esponsibility \textbf{S}egregation
+	    \item Séparation de la partie écriture (commands ou encore modifiers, mutators) et lecture (query)
+	    \item Command : create, update, delete
+	    \item Query: read
+		\end{itemize}
+	\end{frame}
+
+  \section{Pourquoi}
+  \begin{frame}
+  		\begin{itemize}
+	  		\item Responsabilité
+	  		\item Une "command" induit des modifications
+	  		\item Les modèles peuvent différer entre "command" et "query"
+  		\end{itemize}
+	\end{frame}
+
+  \section{Quand}
+  \begin{frame}
+  	Quand l'utiliser :
+	\begin{itemize}
+	  	\item 80 / 20
+	  	\item Différents data engine
+	  	\item Besoin de scale, cache, transaction ...
+		\item Système complexe
+    \end{itemize}
+	Beaucoup de cas où il ne faut PAS l'utiliser (simple CRUD, modèle partagé ...)
+  \end{frame}
+
+  \section{Exemple}
+  \begin{frame}
+	Un exemple d'application \href{https://github.com/FrancisLfg/photographart}{ici} + schéma
+  \end{frame}
+
+  \section{Conclusion}
+  \begin{frame}
+  	CQRS fonctionne bien avec :
+	\begin{itemize}
+		\item DDD
+		\item Command pattern
+		\item Event sourcing
+	\end{itemize}
+	Souvent eux-même confondus avec CQRS...
+   \end{frame}
+   \begin{frame}
+	Amène de la clarté dans certains cas et peut-être utilisé dans un contexte isolé.
+	\\ Framework : 
+	\begin{itemize}
+		\item AxonFramework (Java, 2k stars sur github)
+		\item wolkenkit (Typescript, 1k stars sur github)
+		\item many others
+	\end{itemize}
+  \end{frame}
+  \end{document}
